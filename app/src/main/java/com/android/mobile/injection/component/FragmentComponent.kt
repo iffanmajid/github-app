@@ -1,5 +1,6 @@
 package com.android.mobile.injection.component
 
+import com.android.mobile.features.main.contributors.ContributorsFragment
 import com.android.mobile.injection.PerFragment
 import com.android.mobile.injection.module.FragmentModule
 import dagger.Subcomponent
@@ -9,4 +10,6 @@ import dagger.Subcomponent
  */
 @PerFragment
 @Subcomponent(modules = [FragmentModule::class])
-interface FragmentComponent
+interface FragmentComponent {
+    fun inject(contributorsFragment: ContributorsFragment)
+}

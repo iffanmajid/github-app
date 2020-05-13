@@ -13,7 +13,7 @@ constructor(private val githubApi: GithubApi) {
     fun getContributors(): Single<List<Contributor>> {
         return githubApi.getContributors()
                 .toObservable()
-                .flatMapIterable { it.contributors }
+                .flatMapIterable { it }
                 .map { it }
                 .toList()
     }

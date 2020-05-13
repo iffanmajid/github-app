@@ -6,11 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.ButterKnife
 import com.android.mobile.R
+import com.android.mobile.util.loadImageFromUrl
 import com.po.kemon.data.model.Contributor
+import kotlinx.android.synthetic.main.item_user.view.*
+import timber.log.Timber
 import javax.inject.Inject
 
-class ContributorAdapter @Inject
-constructor() : RecyclerView.Adapter<ContributorAdapter.ContributorViewHolder>() {
+class ContributorsAdapter @Inject
+constructor() : RecyclerView.Adapter<ContributorsAdapter.ContributorViewHolder>() {
 
     private var contributors: List<Contributor>
     private var clickListener: ClickListener? = null
@@ -19,8 +22,9 @@ constructor() : RecyclerView.Adapter<ContributorAdapter.ContributorViewHolder>()
         contributors = listOf()
     }
 
-    fun setPokemon(contributors: List<Contributor>) {
+    fun setContributors(contributors: List<Contributor>) {
         this.contributors = contributors
+        Timber.e("adapter contributor ${this.contributors[0]}")
     }
 
     fun setClickListener(clickListener: ClickListener) {
@@ -30,7 +34,7 @@ constructor() : RecyclerView.Adapter<ContributorAdapter.ContributorViewHolder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContributorViewHolder {
         val view = LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.item_contributor, parent, false)
+                .inflate(R.layout.item_user, parent, false)
         return ContributorViewHolder(view)
     }
 
@@ -44,7 +48,7 @@ constructor() : RecyclerView.Adapter<ContributorAdapter.ContributorViewHolder>()
     }
 
     interface ClickListener {
-        fun onPokemonClick(pokemon: String)
+        fun onContributorClicked(pokemon: String)
     }
 
     inner class ContributorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -57,6 +61,14 @@ constructor() : RecyclerView.Adapter<ContributorAdapter.ContributorViewHolder>()
         }
 
         fun bind(contributor: Contributor) {
+            itemView.apply {
+                ivUser.loadImageFromUrl(contributor.avatarUrl)
+                tvName.text = contributor.login
+                tvUrl.text = contributor.htmlUrl
+                tvType.text = contributor.type
+
+                Timber.e("name: ${tvName.text}")
+            }
 
         }
     }

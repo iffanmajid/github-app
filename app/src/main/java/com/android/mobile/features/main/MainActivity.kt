@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.android.mobile.R
 import com.android.mobile.features.base.BaseActivity
 import com.android.mobile.features.main.repositories.RepositoriesFragment
-import com.android.mobile.features.main.users.UsersFragment
+import com.android.mobile.features.main.contributors.ContributorsFragment
 import com.android.mobile.util.TabAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,15 +27,15 @@ class MainActivity : BaseActivity() {
         // init tab adapter
         val tabAdapter = TabAdapter(supportFragmentManager)
         tabAdapter.apply {
-            addFragment(UsersFragment(), "Users")
+            addFragment(ContributorsFragment(), "Users")
             addFragment(RepositoriesFragment(), "Repositories")
         }
-        mainViewPager.adapter = tabAdapter
-        mainTab.setupWithViewPager(mainViewPager)
+        vpMain.adapter = tabAdapter
+        tlMain.setupWithViewPager(vpMain)
 
         // init tabstyle
-        for (i in 0 until mainTab.tabCount) {
-            val tab = mainTab.getTabAt(i)
+        for (i in 0 until tlMain.tabCount) {
+            val tab = tlMain.getTabAt(i)
             if (tab != null) {
                 val tabTextView = TextView(this)
                 tab.customView = tabTextView
@@ -53,7 +53,7 @@ class MainActivity : BaseActivity() {
             }
         }
 
-        mainTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        tlMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab) {}
 
             override fun onTabUnselected(p0: TabLayout.Tab) {

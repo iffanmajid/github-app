@@ -24,6 +24,13 @@ class MvpStarterApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+            Stetho.initializeWithDefaults(this)
+            LeakCanary.install(this)
+            Sherlock.init(this)
+            Traceur.enableLogging()
+        }
     }
 
     // Needed to replace the component with a test specific one

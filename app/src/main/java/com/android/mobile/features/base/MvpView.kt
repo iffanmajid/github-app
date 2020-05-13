@@ -6,4 +6,8 @@ package com.android.mobile.features.base
  * pattern must implement. Generally this interface will be extended by a more specific interface
  * that then usually will be implemented by an Activity or Fragment.
  */
-interface MvpView
+interface MvpView {
+    fun showProgress(show: Boolean)
+
+    fun showError(error: Throwable)
+}
