@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvName"
         app:layout_constraintStart_toStartOf="@id/tvName"/>
     <TextView
-        android:id="@+id/tvType"
+        android:id="@+id/tvOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="User"

@@ -24,7 +24,6 @@ constructor() : RecyclerView.Adapter<ContributorsAdapter.ContributorViewHolder>(
 
     fun setContributors(contributors: List<Contributor>) {
         this.contributors = contributors
-        Timber.e("adapter contributor ${this.contributors[0]}")
     }
 
     fun setClickListener(clickListener: ClickListener) {
@@ -66,8 +65,6 @@ constructor() : RecyclerView.Adapter<ContributorsAdapter.ContributorViewHolder>(
                 tvName.text = contributor.login
                 tvUrl.text = contributor.htmlUrl
                 tvType.text = contributor.type
-
-                Timber.e("name: ${tvName.text}")
             }
 
         }

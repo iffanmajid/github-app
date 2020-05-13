@@ -1,5 +1,6 @@
 package com.android.mobile.data
 
+import com.android.mobile.data.model.Item
 import com.android.mobile.data.remote.GithubApi
 import com.po.kemon.data.model.Contributor
 import io.reactivex.Single
@@ -18,4 +19,11 @@ constructor(private val githubApi: GithubApi) {
                 .toList()
     }
 
+    fun getRepositories(query: String): Single<List<Item>> {
+        return githubApi.getRepositories(query)
+                .toObservable()
+                .flatMapIterable { it.items }
+                .map { it }
+                .toList()
+    }
 }

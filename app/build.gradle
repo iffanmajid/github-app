@@ -108,6 +108,7 @@ dependencies {
     implementation networkLibs
     implementation rxJavaLibs
     implementation otherLibs
+    implementation  'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
     debugImplementation debugLibs
     releaseImplementation releaseLibs

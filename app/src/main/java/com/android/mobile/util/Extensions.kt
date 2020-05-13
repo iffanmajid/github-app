@@ -22,6 +22,7 @@ import android.text.style.ClickableSpan
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import java.text.ParseException
