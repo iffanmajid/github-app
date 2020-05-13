@@ -13,6 +13,6 @@ import javax.inject.Singleton
 class ApiModule {
     @Provides
     @Singleton
-    internal fun providePokemonApi(retrofit: Retrofit): GithubApi =
+    internal fun provideGithubApi(retrofit: Retrofit): GithubApi =
             retrofit.create(GithubApi::class.java)
 }
