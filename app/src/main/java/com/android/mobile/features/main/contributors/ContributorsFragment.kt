@@ -46,7 +46,7 @@ class ContributorsFragment : BaseFragment(), ContributorsView, ErrorView.ErrorLi
     }
     override fun showContributors(contributors: List<Contributor>) {
         contributorsAdapter.apply {
-            setContributors(contributors)
+            setContributors(contributors.toMutableList())
             notifyDataSetChanged()
         }
         rvUsers.visible()

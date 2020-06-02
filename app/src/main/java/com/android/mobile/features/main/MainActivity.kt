@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.android.mobile.R
 import com.android.mobile.features.base.BaseActivity
 import com.android.mobile.features.main.repositories.RepositoriesFragment
-import com.android.mobile.features.main.contributors.ContributorsFragment
+import com.android.mobile.features.main.searchusers.SearchUsersActivity
 import com.android.mobile.util.TabAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +27,8 @@ class MainActivity : BaseActivity() {
         // init tab adapter
         val tabAdapter = TabAdapter(supportFragmentManager)
         tabAdapter.apply {
-            addFragment(ContributorsFragment(), "Users")
+//            addFragment(SearchUsersActivity(), "Search Users")
+//            addFragment(ContributorsFragment(), "Users")
             addFragment(RepositoriesFragment(), "Repositories")
         }
         vpMain.adapter = tabAdapter

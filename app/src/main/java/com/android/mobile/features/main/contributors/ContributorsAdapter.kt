@@ -15,15 +15,19 @@ import javax.inject.Inject
 class ContributorsAdapter @Inject
 constructor() : RecyclerView.Adapter<ContributorsAdapter.ContributorViewHolder>() {
 
-    private var contributors: List<Contributor>
+    private var contributors: MutableList<Contributor>
     private var clickListener: ClickListener? = null
 
     init {
-        contributors = listOf()
+        contributors = mutableListOf()
     }
 
-    fun setContributors(contributors: List<Contributor>) {
-        this.contributors = contributors
+    fun setContributors(contributors: MutableList<Contributor>) {
+        this.contributors.addAll(contributors)
+    }
+
+    fun clearContributors() {
+        this.contributors.clear()
     }
 
     fun setClickListener(clickListener: ClickListener) {

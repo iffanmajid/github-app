@@ -47,5 +47,5 @@ data class Contributor(
     @Json(name = "site_admin")
     val siteAdmin: Boolean,
     @Json(name = "contributions")
-    val contributions: Int
+    val contributions: Int?
 )
